@@ -1,9 +1,9 @@
 <template>
-  <section class="v-calendar" :class="[position, { long: range }]">
+  <section class="v-calendar" :class="[position, isShowPickerClass, { long: range }]">
     <div class="input-field" :class="{ long: range }">
       <input
         type="text"
-        :class="[inputClass]"
+        :class="['v-calendar__input', inputClass]"
         :placeholder="placeholder"
         @click="isShowPicker = !isShowPicker"
         :disabled="disabled"
@@ -201,6 +201,9 @@ export default {
     }
   },
   computed: {
+    isShowPickerClass () {
+      return this.isShowPicker ? 'v-calendar--show-picker' : ''
+    },
     disabledStartDateCalc () {
       const unSelectedDate = {
         from: null,
@@ -520,7 +523,7 @@ export default {
   height: var(--v-calendar-day-font-size);
 }
 
-.v-calendar .input-field input:disabled ~ svg {
+.v-calendar .input-field .v-calendar__input:disabled ~ svg {
   fill: var(--v-calendar-text-color);
 }
 
@@ -528,7 +531,7 @@ export default {
   min-width: 290px;
 }
 
-.v-calendar .input-field input {
+.v-calendar .input-field .v-calendar__input {
   padding-left: 40px;
   padding-right: 20px;
   font-size: var(--v-calendar-input-font-size);
@@ -541,7 +544,7 @@ export default {
   font-weight: inherit;
 }
 
-.v-calendar .input-field input:disabled {
+.v-calendar .input-field .v-calendar__input:disabled {
   background-color: var(--v-calendar-input-bg-disable-color);
   color: var(--v-calendar-input-text-disable-color);
   cursor: not-allowed;

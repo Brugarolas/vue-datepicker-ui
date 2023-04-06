@@ -1,16 +1,19 @@
 {
-  "name": "vue-datepicker-ui",
-  "version": "3.1.1",
+  "name": "vue3-datepicker-ui",
+  "version": "3.1.1-patch-1",
   "private": false,
   "description": "A Datepicker Component For Vue",
-  "author": "edisdev <edisdev14@gmail.com>",
+  "author": "andres.brugarolas",
   "scripts": {
     "test:unit": "vue-cli-service test:unit -u",
     "lint": "vue-cli-service lint",
     "docs:build": "vuepress build docs --clean-cache --clean-temp",
     "docs:dev": "vuepress dev docs --clean-temp --clean-cache",
     "docs:serve": "vuepress serve docs",
-    "package": "vue-cli-service build NODE_ENV=production --target lib --name vuedatepickerui --entry ./src/components/datepicker.vue --dest ./lib"
+    "package": "vue-cli-service build NODE_ENV=production --target lib --name vuedatepickerui --entry ./src/components/datepicker.vue --dest ./lib",
+    "utils:outdated": "npm outdated",
+    "utils:updates": "ncu",
+    "utils:upgrades": "ncu -u"
   },
   "main": "./lib/vuedatepickerui.umd.js",
   "dependencies": {
@@ -34,6 +37,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-vue": "^7.11.1",
     "lint-staged": "^11.0.0",
+    "npm-check-updates": "^16.10.2",
     "vue-jest": "^5.0.0-alpha.10",
     "vuepress": "^2.0.0-beta.23",
     "vuepress-theme-default-prefers-color-scheme": "^2.0.0"
